@@ -8,7 +8,7 @@
 | **Year Level** | 4th Year |
 | **Set/Section** | C |
 | **Subject** | IT415 - Application Development and Emerging Technologies |
-| **Program** | BS Information Systems, Davao del Norte State College |
+| **Program** | BS Information Technology, Davao del Norte State College |
 
 ## Project Description
 
