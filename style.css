@@ -120,10 +120,31 @@ button:focus-visible {
 }
 
 .nav-list a {
+  position: relative;
+  display: inline-block;
   font-size: 0.875rem;
   font-weight: 700;
   text-decoration: none;
   color: var(--color-text);
+}
+
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.nav-list a:hover::after,
+.nav-list a:focus-visible::after,
+.nav-list a[aria-current="location"]::after {
+  transform: scaleX(1);
 }
 
 .nav-list a:hover {
@@ -247,6 +268,25 @@ button:focus-visible {
   color: var(--color-text);
 }
 
+.credential-link span {
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+
+.credential-link:focus-visible span {
+  transform: translate(2px, -2px);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .credential-link:hover span {
+    transform: translate(2px, -2px);
+  }
+
+  .skills-list li:hover .skill-icons {
+    transform: translateY(-3px);
+  }
+}
+
 /* Certificate viewer shares the page's monochrome editorial styling. */
 html.certificate-open {
   overflow: hidden;
@@ -360,6 +400,7 @@ html.certificate-open {
   align-items: center;
   gap: 4px;
   flex: 0 0 52px;
+  transition: transform 180ms ease;
 }
 
 .skill-icons img {
@@ -372,6 +413,20 @@ html.certificate-open {
 @media (max-width: 479px) {
   .skills-list {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-list a::after,
+  .credential-link span,
+  .skill-icons {
+    transition: none;
+  }
+
+  .credential-link:hover span,
+  .credential-link:focus-visible span,
+  .skills-list li:hover .skill-icons {
+    transform: none;
   }
 }
 

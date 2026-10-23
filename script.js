@@ -6,7 +6,8 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   /* ---------- Smooth scrolling for in-page links ---------- */
-  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var prefersReducedMotion = motionPreference.matches;
   var header = document.querySelector(".site-header");
   var links = document.querySelectorAll('a[href^="#"]');
 
@@ -29,6 +30,71 @@ document.addEventListener("DOMContentLoaded", function () {
       // Keep the URL hash in sync without jumping
       history.pushState(null, "", link.getAttribute("href"));
     });
+  });
+
+  /* ---------- Highlight the navigation group currently being read ---------- */
+  var navLinks = document.querySelectorAll(".nav-list a");
+  var sections = document.querySelectorAll("main .cv-row[id]");
+  var navigationFrame = 0;
+
+  function updateNavigation() {
+    navigationFrame = 0;
+    var activeSection = "";
+    var readingLine = (header ? header.offsetHeight : 0) + 120;
+    sections.forEach(function (section) {
+      if (section.getBoundingClientRect().top <= readingLine) {
+        activeSection = section.id;
+      }
+    });
+    // Skills, education, certifications and contact belong to the CV group.
+    var activeHash = activeSection ? "#education" : "";
+    if (activeSection === "about") activeHash = "#about";
+    if (activeSection === "projects") activeHash = "#projects";
+    navLinks.forEach(function (link) {
+      if (link.getAttribute("href") === activeHash) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  function scheduleNavigation() {
+    if (!navigationFrame) navigationFrame = window.requestAnimationFrame(updateNavigation);
+  }
+  window.addEventListener("scroll", scheduleNavigation, { passive: true });
+  window.addEventListener("resize", scheduleNavigation);
+  window.addEventListener("load", scheduleNavigation);
+  updateNavigation();
+
+  /* ---------- Reveal each section once, leaving content visible by default ---------- */
+  var revealObserver;
+  var revealAnimations = [];
+  if (!prefersReducedMotion && "IntersectionObserver" in window) {
+    revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        revealObserver.unobserve(entry.target);
+        // Animate the content rather than the divider or the entire grid.
+        entry.target.querySelectorAll(".cv-label, .cv-content").forEach(function (element) {
+          if (typeof element.animate !== "function" || motionPreference.matches) return;
+          revealAnimations.push(element.animate([
+            { opacity: 0, transform: "translateY(12px)" },
+            { opacity: 1, transform: "translateY(0)" }
+          ], { duration: 400, easing: "cubic-bezier(0.2, 0.7, 0.3, 1)" }));
+        });
+      });
+    }, { threshold: 0, rootMargin: "0px 0px -24px 0px" });
+    sections.forEach(function (section) { revealObserver.observe(section); });
+  }
+
+  motionPreference.addEventListener("change", function (event) {
+    prefersReducedMotion = event.matches;
+    if (event.matches) {
+      if (revealObserver) revealObserver.disconnect();
+      revealAnimations.forEach(function (animation) { animation.cancel(); });
+      revealAnimations = [];
+    }
   });
 
   /* ---------- Accessible certificate modal ---------- */
