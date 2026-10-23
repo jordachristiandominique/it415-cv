@@ -377,15 +377,40 @@ html.certificate-open {
 
 
 /* ==================== 9. Contact ==================== */
+.contact-separator {
+  border: 0;
+  border-top: 1px solid var(--color-divider);
+  margin: 24px 0;
+}
+
 .contact-list {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 128px minmax(0, 1fr);
   row-gap: 10px;
 }
 
 .contact-list dt {
+  display: flex;
+  align-items: center;
+  align-self: start;
+  gap: 10px;
   color: var(--color-text);
   font-weight: 700;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  object-fit: contain;
+}
+
+.contact-icon-linkedin {
+  color: #0A66C2;
+}
+
+.contact-icon-facebook {
+  color: #0866FF;
 }
 
 .contact-list dd {
