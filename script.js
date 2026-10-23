@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
         revealObserver.unobserve(entry.target);
+        entry.target.classList.add("is-revealed");
         // Animate the content rather than the divider or the entire grid.
         entry.target.querySelectorAll(".cv-label, .cv-content").forEach(function (element) {
           if (typeof element.animate !== "function" || motionPreference.matches) return;
