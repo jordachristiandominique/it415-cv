@@ -343,9 +343,36 @@ html.certificate-open {
 /* ==================== 8. Skills List ==================== */
 .skills-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   column-gap: var(--column-gap);
-  row-gap: 6px;
+  row-gap: 16px;
+}
+
+.skills-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.skill-icons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 52px;
+}
+
+.skill-icons img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+@media (max-width: 479px) {
+  .skills-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 
