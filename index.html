@@ -50,7 +50,7 @@
     <section id="about" class="cv-row container" aria-labelledby="about-title">
       <h2 id="about-title" class="cv-label">About</h2>
       <div class="cv-content">
-        <p class="lead">Christian Dominique L. Jorda &middot; Software Developer &amp; Cybersecurity Enthusiast</p>
+        <p class="lead">Christian Dominique L. Jorda &middot; Information Technology Student</p>
         <p>
           I am a fourth-year BS Information Technology student at Davao del Norte State College.
           I enjoy building practical software and understanding how systems work end to end,
@@ -118,13 +118,32 @@
       </div>
     </section>
 
+    <!-- ==================== ACHIEVEMENTS & CERTIFICATIONS ==================== -->
+    <section id="certifications" class="cv-row container" aria-labelledby="certifications-title">
+      <h2 id="certifications-title" class="cv-label">Achievements &amp; Certifications</h2>
+      <div class="cv-content">
+        <article class="entry">
+          <h3 class="entry-title">CCNA: Introduction to Networks</h3>
+          <p class="entry-meta">Cisco Networking Academy &middot; <time datetime="2025-05-29">May 29, 2025</time></p>
+          <p>Completed the course offered by Davao del Norte State College through the Cisco Networking Academy program.</p>
+          <p><a class="credential-link" href="images/cert_networking.png" aria-haspopup="dialog" aria-controls="certificate-modal" aria-label="View CCNA: Introduction to Networks certificate">View certificate <span aria-hidden="true">&#8599;</span></a></p>
+        </article>
+        <article class="entry">
+          <h3 class="entry-title">BSIT 413 Series Training: Artificial Intelligence for Innovation of Capstone Project</h3>
+          <p class="entry-meta">Davao del Norte State College &middot; <time datetime="2026-09-29">September 29, 2026</time></p>
+          <p>Completed the two-day Advanced Seminar Series for BSIT fourth-year students, held September 28&ndash;29, 2026.</p>
+          <p><a class="credential-link" href="images/cert_AS_training.png" aria-haspopup="dialog" aria-controls="certificate-modal" aria-label="View Artificial Intelligence for Innovation of Capstone Project certificate">View certificate <span aria-hidden="true">&#8599;</span></a></p>
+        </article>
+      </div>
+    </section>
+
     <!-- ==================== CONTACT ==================== -->
     <section id="contact" class="cv-row container" aria-labelledby="contact-title">
       <h2 id="contact-title" class="cv-label">Contact</h2>
       <div class="cv-content">
         <dl class="contact-list">
           <dt>Email</dt>
-          <dd><a href="mailto:jorda.christiandominique@dnsc.edu.ph">jorda.christiandominique@dnsc.edu.ph</a></dd>
+          <dd><a href="mailto:jorda.christiandominique@dnsc.edu.ph">christiandominique101604@gmail.com</a></dd>
 
           <dt>Phone</dt>
           <dd><a href="tel:+639000000000">+63 920 701 8602</a></dd>
@@ -135,7 +154,8 @@
           <dt>GitHub</dt>
           <dd><a href="https://github.com/jordachristiandominique" target="_blank" rel="noopener noreferrer">github.com/jordachristiandominique</a></dd>
 
-         
+          <dt>LinkedIn</dt>
+          <dd><a href="https://www.linkedin.com/in/christiandominique-jorda-80b8a8440/?isSelfProfile=true" target="_blank" rel="noopener noreferrer">linkedin.com/in/jordachristiandominique</a></dd>
         </dl>
       </div>
     </section>
@@ -145,9 +165,20 @@
   <!-- ==================== FOOTER ==================== -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year">2026</span> Christian Dominique L. Jorda</p>
+      <p>&copy; <span id="year">2026</span> Christian Dominique L. Jorda. All rights reserved.</p>
     </div>
   </footer>
+
+  <dialog id="certificate-modal" class="certificate-modal" aria-labelledby="certificate-modal-title">
+    <div class="certificate-modal-header">
+      <h2 id="certificate-modal-title">Certificate</h2>
+      <button class="certificate-modal-close" type="button" aria-label="Close certificate" autofocus>&times;</button>
+    </div>
+    <div class="certificate-modal-body">
+      <img id="certificate-modal-image" alt="">
+      <p id="certificate-modal-error" hidden>Unable to load the certificate. <a id="certificate-original" href="">Open original image</a></p>
+    </div>
+  </dialog>
 
   <script src="script.js"></script>
 </body>

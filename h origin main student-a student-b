@@ -1,0 +1,8 @@
+*   [33m3e603b3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Resolve merge conflict between student-a and student-b
+[31m|[m[32m\[m  
+[31m|[m * [33m424e7a0[m[33m ([m[1;32mstudent-b[m[33m)[m student B update
+* [32m|[m [33m5da7757[m[33m ([m[1;32mstudent-a[m[33m)[m student A update
+[32m|[m[32m/[m  
+* [33mc2373e6[m[33m ([m[1;31morigin/main[m[33m)[m change program index
+* [33m8ebdefa[m change md program
+* [33m9b42db4[m Add personal CV web page

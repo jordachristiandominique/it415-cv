@@ -60,7 +60,8 @@ ul {
 }
 
 /* Visible keyboard focus for accessibility */
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--color-text);
   outline-offset: 3px;
 }
@@ -213,7 +214,7 @@ a:focus-visible {
 }
 
 
-/* ==================== 7. Entries (Education & Projects) ==================== */
+/* ==================== 7. Entries (Education, Projects & Certifications) ==================== */
 .entry + .entry {
   margin-top: 28px;
 }
@@ -234,6 +235,108 @@ a:focus-visible {
 .entry strong {
   color: var(--color-text);
   font-weight: 700;
+}
+
+.credential-link {
+  font-size: 0.875rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.credential-link:hover {
+  color: var(--color-text);
+}
+
+/* Certificate viewer shares the page's monochrome editorial styling. */
+html.certificate-open {
+  overflow: hidden;
+}
+
+.certificate-modal {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(1100px, calc(100% - 32px));
+  max-width: none;
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 1px solid var(--color-divider);
+  background: var(--color-bg);
+  color: var(--color-text);
+  box-shadow: 0 24px 80px rgb(0 0 0 / 20%);
+  opacity: 0;
+  transform: translateY(12px) scale(0.98);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.certificate-modal::backdrop {
+  background: rgb(17 17 17 / 65%);
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.certificate-modal.is-visible,
+.certificate-modal.is-visible::backdrop {
+  opacity: 1;
+}
+
+.certificate-modal.is-visible {
+  transform: translateY(0) scale(1);
+}
+
+.certificate-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.certificate-modal-header h2 {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.certificate-modal-close {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-divider);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font: inherit;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.certificate-modal-close:hover {
+  background: var(--color-placeholder);
+}
+
+.certificate-modal-body {
+  padding: 16px;
+}
+
+.certificate-modal-body img {
+  width: 100%;
+  height: auto;
+}
+
+.certificate-modal-body [hidden] {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .certificate-modal,
+  .certificate-modal::backdrop,
+  .certificate-modal-close {
+    transition: none;
+  }
 }
 
 
