@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  /* ---------- Accessible certificate modal ---------- */
+  /* ---------- Shared accessible certificate and project image viewer ---------- */
   var modal = document.getElementById("certificate-modal");
   if (modal && typeof modal.showModal === "function") {
     var modalImage = document.getElementById("certificate-modal-image");
@@ -124,8 +124,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (modal.open) return;
         opener = link;
         var title = link.closest(".entry").querySelector(".entry-title").textContent;
-        modalTitle.textContent = title;
-        modalImage.alt = title + " — certificate";
+        var isProject = link.getAttribute("data-preview") === "project";
+        modalTitle.textContent = isProject ? title + " - Coral analysis" : title;
+        modalImage.alt = isProject
+          ? "CoralSense analysis screenshot showing a coral reef image with purple coral annotations and numbered sampling points"
+          : title + " - certificate";
         modalImage.hidden = false;
         modalError.hidden = true;
         originalImage.href = link.href;
