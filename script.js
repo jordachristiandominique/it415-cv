@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         opener = link;
         var title = link.closest(".entry").querySelector(".entry-title").textContent;
         modalTitle.textContent = title;
-        modalImage.alt = title + " — certificate of completion";
+        modalImage.alt = title + " — certificate";
         modalImage.hidden = false;
         modalError.hidden = true;
         originalImage.href = link.href;
