@@ -27,7 +27,7 @@ A responsive, single-page curriculum vitae website showcasing my profile, educat
 
 ## Live Vercel Link
 
-Pending: add the deployed Vercel website URL here.
+https://christiandominiquejorda.vercel.app/
 
 ## Run Locally
 
