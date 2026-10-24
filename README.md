@@ -1,45 +1,45 @@
-# Personal CV Web Page
+﻿# Personal CV Website — Christian Dominique Jorda
 
-## Student Information
+## Short Description
 
-| | |
+A responsive, single-page curriculum vitae website showcasing my profile, education, technical skills, projects, achievements, certifications, and contact information. The minimalist editorial design includes light and dark modes, themed logos, smooth scrolling, active navigation, subtle scroll animations, and modal previews for certificates and project screenshots.
+
+## Technologies Used
+
+- **HTML5** — semantic page structure and accessible content.
+- **CSS3** — responsive layouts using Grid and Flexbox, theme colors, transitions, and animations.
+- **Vanilla JavaScript** — theme persistence, navigation highlighting, scroll reveals, image modals, and automatic footer year.
+- **Google Fonts (Inter)** — typography.
+- **Simple Icons SVGs** — technology and GitHub logos.
+- **Vercel** — website hosting.
+
+## Student Name
+
+**Christian Dominique L. Jorda**
+
+| Detail | Information |
 |---|---|
-| **Complete Name** | Christian Dominique L. Jorda |
-| **Year Level** | 4th Year |
-| **Set/Section** | C |
-| **Subject** | IT415 - Application Development and Emerging Technologies |
-| **Program** | BS Information Technology, Davao del Norte State College |
+| Year Level | 4th Year |
+| Set/Section | C |
+| Subject | IT415 — Application Development and Emerging Technologies |
+| Program | BS Information Technology |
+| School | Davao del Norte State College |
 
-## Project Description
+## Live Vercel Link
 
-A responsive, single-page personal Curriculum Vitae website with a minimalist, editorial design: white background, strong black typography, and a two-column layout (section labels on the left, content on the right). It presents my profile, education, technical skills, selected projects, and contact information.
+Pending: add the deployed Vercel website URL here.
 
-It is built with HTML5, CSS3 (Grid and Flexbox), and a small amount of vanilla JavaScript. No frameworks are used.
+## Run Locally
 
-### Features
+Clone or download the repository and open `index.html` in a browser. Alternatively, use the VS Code Live Server extension. No dependency installation or build step is required.
 
-- Semantic HTML5 structure (`header`, `nav`, `main`, `section`, `footer`)
-- Two-column grid layout that collapses to a single column on screens under 768px
-- Sticky header with a square "CD" monogram and smooth-scrolling navigation
-- Accessible markup: alt text, visible keyboard focus, high color contrast, and reduced-motion support
-- Footer year updates automatically
+## Project Files
 
-## File Structure
-
+```text
+index.html   Page structure and CV content
+style.css    Responsive styles, themes, and animations
+script.js    Navigation, scroll reveals, image previews, and footer year
+theme.js     Theme initialization, persistence, and favicon switching
+images/      Profile photo, logos, certificates, and project screenshots
+README.md    Project documentation
 ```
-CV Web/
-├── index.html      # Page structure and CV content
-├── style.css       # All styling, organized by section, with responsive media queries
-├── script.js       # Smooth scrolling and current year in the footer
-├── README.md       # Project documentation
-└── images/
-    └── profile-cd.png  # Profile photo
-```
-
-## Viewing the Page Locally
-
-1. Download or clone this project folder.
-2. Make sure the profile photo `profile-cd.png` is inside the `images/` folder.
-3. Open `index.html` in any modern web browser (double-click the file, or right-click and choose **Open with**).
-
-Optional: in VS Code, install the **Live Server** extension, right-click `index.html`, and choose **Open with Live Server** to reload the page automatically as you edit.
