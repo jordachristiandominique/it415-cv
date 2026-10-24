@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Curriculum Vitae of Christian Dominique L. Jorda, BS Information Systems student at Davao del Norte State College.">
   <title>Christian Dominique Jorda | Curriculum Vitae</title>
+  <link id="theme-favicon" rel="icon" type="image/png" href="images/cd-logo-light.png">
+  <script src="theme.js"></script>
 
   <!-- Inter font (falls back to Helvetica Neue, Arial, sans-serif) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +20,10 @@
   <!-- ==================== HEADER ==================== -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="#top" class="logo" aria-label="Christian Dominique Jorda, back to top">CD</a>
+      <a href="#top" class="logo" aria-label="Christian Dominique Jorda, back to top">
+        <img class="logo-light" src="images/cd-logo-light.png" alt="" width="52" height="52">
+        <img class="logo-dark" src="images/cd-logo-dark.png" alt="" width="52" height="52">
+      </a>
 
       <nav aria-label="Main navigation">
         <ul class="nav-list">
@@ -27,6 +32,10 @@
           <li><a href="#education">Curriculum Vitae</a></li>
         </ul>
       </nav>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" hidden>
+        <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg>
+        <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+      </button>
     </div>
   </header>
 

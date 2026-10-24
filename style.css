@@ -6,6 +6,7 @@
 
 /* ==================== 1. Design Tokens ==================== */
 :root {
+  color-scheme: light;
   --color-bg: #FFFFFF;
   --color-text: #111111;
   --color-muted: #444444;
@@ -18,6 +19,15 @@
   --gutter: 40px;
   --column-gap: 48px;
   --header-height: 76px;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #141414;
+  --color-text: #F5F5F5;
+  --color-muted: #BBBBBB;
+  --color-divider: #363636;
+  --color-placeholder: #242424;
 }
 
 
@@ -98,19 +108,62 @@ button:focus-visible {
   height: var(--header-height);
 }
 
-/* Square monogram logo */
+/* Theme-specific monogram artwork */
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.logo .logo-dark,
+.theme-sun,
+[data-theme="dark"] .logo .logo-light,
+[data-theme="dark"] .theme-moon {
+  display: none;
+}
+
+[data-theme="dark"] .logo .logo-dark,
+[data-theme="dark"] .theme-sun {
+  display: block;
+}
+
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  flex: 0 0 44px;
   width: 44px;
   height: 44px;
-  background-color: var(--color-text);
-  color: var(--color-bg);
-  font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  text-decoration: none;
+  margin-left: auto;
+  border: 1px solid var(--color-divider);
+  background: var(--color-bg);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.theme-toggle[hidden] { display: none; }
+.theme-toggle:hover { background: var(--color-placeholder); }
+.theme-toggle svg { width: 20px; height: 20px; }
+
+/* Preserve brand colors while keeping dark marks visible on a dark surface. */
+[data-theme="dark"] img[src="images/skills/github.svg"] {
+  filter: invert(1);
+}
+
+[data-theme="dark"] img[src="images/skills/django.svg"] {
+  background: #FFFFFF;
+  border-radius: 2px;
+  padding: 2px;
 }
 
 .nav-list {
@@ -450,6 +503,8 @@ html.certificate-open {
     transition: none;
   }
 
+  .theme-toggle { transition: none; }
+
   .credential-link:hover span,
   .credential-link:focus-visible span,
   .skills-list li:hover .skill-icons {
@@ -538,9 +593,8 @@ html.certificate-open {
   }
 
   .logo {
-    width: 38px;
-    height: 38px;
-    font-size: 0.875rem;
+    width: 44px;
+    height: 44px;
   }
 
   .nav-list {
@@ -585,5 +639,18 @@ html.certificate-open {
 
   .contact-list dd {
     margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 479px) {
+  :root { --header-height: 112px; }
+  .header-inner {
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 8px 16px;
+  }
+  .header-inner nav {
+    order: 3;
+    flex-basis: 100%;
   }
 }
