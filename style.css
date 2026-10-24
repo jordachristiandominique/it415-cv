@@ -179,6 +179,8 @@ button:focus-visible {
   font-weight: 700;
   text-decoration: none;
   color: var(--color-text);
+  min-height: 44px;
+  align-content: center;
 }
 
 .nav-list a::after {
@@ -186,7 +188,7 @@ button:focus-visible {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: -5px;
+  bottom: 2px;
   height: 2px;
   background: currentColor;
   transform: scaleX(0);
@@ -299,6 +301,7 @@ button:focus-visible {
 }
 
 .cv-content {
+  min-width: 0;
   color: var(--color-muted);
   font-size: 1rem;
   max-width: 680px;
@@ -444,6 +447,7 @@ html.certificate-open {
   max-height: calc(100vh - 32px);
   max-height: calc(100dvh - 32px);
   padding: 0;
+  overflow-y: auto;
   border: 1px solid var(--color-divider);
   background: var(--color-bg);
   color: var(--color-text);
@@ -705,9 +709,13 @@ html.certificate-open {
   }
 }
 
-@media (max-width: 479px) {
+@media (max-width: 600px) {
   :root { --header-height: 112px; }
   .header-inner {
+    height: auto;
+    min-height: var(--header-height);
+    padding-top: 8px;
+    padding-bottom: 8px;
     flex-wrap: wrap;
     align-content: center;
     gap: 8px 16px;
@@ -715,5 +723,27 @@ html.certificate-open {
   .header-inner nav {
     order: 3;
     flex-basis: 100%;
+    min-width: 0;
+  }
+  .nav-list {
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .nav-list a {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 479px) {
+  :root { --header-height: 160px; }
+  .nav-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px 16px;
+  }
+  .nav-list a {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
   }
 }
