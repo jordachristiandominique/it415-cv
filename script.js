@@ -46,10 +46,11 @@ document.addEventListener("DOMContentLoaded", function () {
         activeSection = section.id;
       }
     });
-    // Skills, education, certifications and contact belong to the CV group.
+    // Skills, education and certifications belong to the CV group.
     var activeHash = activeSection ? "#education" : "";
     if (activeSection === "about") activeHash = "#about";
     if (activeSection === "projects") activeHash = "#projects";
+    if (activeSection === "contact") activeHash = "#contact";
     navLinks.forEach(function (link) {
       if (link.getAttribute("href") === activeHash) {
         link.setAttribute("aria-current", "location");
