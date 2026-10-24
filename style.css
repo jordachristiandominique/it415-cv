@@ -338,6 +338,69 @@ button:focus-visible {
   font-weight: 700;
 }
 
+.project-technologies {
+  margin-top: 16px;
+}
+
+.project-technologies-label {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.project-technologies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 10px;
+}
+
+.project-technologies-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.875rem;
+}
+
+.project-technologies-list img {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  object-fit: contain;
+}
+
+.project-repository {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--color-divider);
+}
+
+.project-repository > img {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+}
+
+.project-repository-label {
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.project-repository p + p {
+  margin-top: 4px;
+  font-size: 0.875rem;
+}
+
+.project-repository a {
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
 .credential-link {
   font-size: 0.875rem;
   text-decoration: underline;
